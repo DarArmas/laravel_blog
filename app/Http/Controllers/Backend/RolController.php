@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
+use App\Models\Rol;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
-class MiCuentaController extends Controller
+class RolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,7 @@ class MiCuentaController extends Controller
      */
     public function index()
     {
-        return view("theme.back.mi-cuenta.index");
-     
-       
+        //
     }
 
     /**
@@ -43,10 +42,10 @@ class MiCuentaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Rol $rol)
     {
         //
     }
@@ -54,10 +53,10 @@ class MiCuentaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Rol $rol)
     {
         //
     }
@@ -66,10 +65,10 @@ class MiCuentaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Rol $rol)
     {
         //
     }
@@ -77,10 +76,10 @@ class MiCuentaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Rol $rol)
     {
         //
     }
