@@ -16,14 +16,17 @@ class Menu extends Model
         return $this->belongsToMany(Rol::class, 'menus_roles', 'menus_id', 'roles_id');
     }
 
+    //el menu del sidebar depende del tipo de usuario
     private function getMenuPadres($front){
         if($front){
             return $this->whereHas('roles',function($query){
                 $query->where('rol_id', session('rol_id'))->orderby('menus_id');
             })->orderby('menus_id')
+                ->orderby('orden')
                 ->get()
                 ->toArray();
         }else{
+            //si no es el front entonces es el administrador
             return $this->orderby('menus_id')
                         ->orderby('orden')
                         ->get()
@@ -35,13 +38,13 @@ class Menu extends Model
         $hijos = [];
         foreach($padres as $line2){
             if($line['id'] == $line2['menus_id']){
-                $hijos = array_merge($hijos, [array_merge($line2, ['submenu' => $thjis->getHijos($padres, $line)])]);
+                $hijos = array_merge($hijos, [array_merge($line2, ['submenu' => $this->getHijos($padres, $line2)])]);
             }
         }
         return $hijos;
     }
 
-    private static function getMenu($front = false){
+    public static function getMenu($front = false){
         $menus = new Menu();
         $padres = $menus->getMenuPadres($front);
         $menuAll = [];

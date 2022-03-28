@@ -14,6 +14,8 @@
     <!-- Custom CSS -->
     <!-- Custom CSS -->
     <link href={{asset("assets/back/css/style.min.css")}} rel="stylesheet">
+    <!--CSS dinamico-->
+    @yield("styles")
     <link href={{asset("assets/back/css/laravel-blog.css")}} rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
