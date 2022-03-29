@@ -13,6 +13,7 @@ class Usuario extends Authenticatable
 {
     use HasFactory, Notifiable;
     protected $guarded = [];
+    protected $table = 'usuario';
 
       /**
      * The attributes that should be hidden for serialization.
@@ -34,6 +35,6 @@ class Usuario extends Authenticatable
     ];
 
     public function roles(){
-        return $this->belongsToMany(Rol::class, 'usuarios_roles', 'usuarios_id', 'roles_id'); //los usuarios tienen una relacion con Roles a traves de la tabla puente usuarios_roles
+        return $this->belongsToMany(Rol::class, 'usuario_rol', 'usuario_id', 'rol_id'); //los usuarios tienen una relacion con Roles a traves de la tabla puente usuarios_roles
     }
 }

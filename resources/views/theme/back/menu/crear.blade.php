@@ -17,9 +17,11 @@
                 <x-alert tipo="danger" :mensaje="$errors"/>
             @endif
             <div class="card">
-                <div class="card-header">
-                    Crear Menus
+                <div class="card-header bg-success">
+                    <h5 class="text-white float-left">Guardar</h5>
+                    <a href="{{route('menu')}}" class="btn btn-outline-light btn-sm float-right">Regresar a menus</a>
                 </div>
+                
                 <form action="{{route('menu.guardar')}}" id="form-general" class="form-horizontal" method="POST">
                     @csrf
                     <div class="card-body">

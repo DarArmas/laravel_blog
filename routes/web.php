@@ -1,8 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MiCuentaController;
-use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\MenuController;
+use App\Http\Controllers\Backend\MenuRolController;
+use App\Http\Controllers\Backend\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,7 @@ Route::group(['prefix'=>'admin-backend', 'middleware' => ['auth', 'superadminist
     Route::post('menu/guardar-orden', [MenuController::class, 'guardarOrden'])->name('menu.orden');
     Route::put('menu/{id}', [MenuController::class, 'actualizar'])->name('menu.actualizar');
     Route::delete('menu/{id}/eliminar', [MenuController::class, 'eliminar'])->name('menu.eliminar');    
+    /*RUTAS DEL MENU ROL */
+    Route::get('menu-rol', [MenuRolController::class, 'index'])->name('menu-rol');
+    Route::post('menu-rol', [MenuRolController::class, 'guardar'])->name('menu-rol.guardar');
 });

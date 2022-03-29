@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Rol;
+use App\Models\Backend\Rol;
 use App\Models\Usuario;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
@@ -69,7 +69,7 @@ class Instalador extends Command
     private function crearUsuarioSuperAdmin(){
         return Usuario::create([
             'nombre' => 'blog_admin',
-            'email' => 'darnellsanchez2011@gmail.com',
+            'email' => 'darnell@test.com',
             'password' => Hash::make('pass1234'),
             'estado' => 1
         ]);

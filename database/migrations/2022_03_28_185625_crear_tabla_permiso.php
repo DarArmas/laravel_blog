@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaArchivos extends Migration
+class CrearTablaPermiso extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CrearTablaArchivos extends Migration
      */
     public function up()
     {
-        Schema::create('archivos', function (Blueprint $table) {
+        Schema::create('permiso', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('model_id');
-            $table->string('model_type', '150');
-            $table->string('ruta', '150');
-            $table->string('extension', '10');
-            $table->string('peso');
-            $table->boolean('local')->default();
+            $table->string('nombre',50)->unique();
+            $table->string('slug', 50)->unique();
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CrearTablaArchivos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('archivos');
+        Schema::dropIfExists('permiso');
     }
 }
