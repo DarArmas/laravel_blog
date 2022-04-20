@@ -31,6 +31,7 @@ class MenuRolController extends Controller
     {
         if($request->ajax()){
             $menu = Menu::findOrFail($request->menu_id);
+            cache()->tags('Menu')->flush();
             if($request->estado == 1){
                 $menu->roles()->attach($request->rol_id);
                 return response()->json(['respuesta' => 'El rol se asignó correctamente']);

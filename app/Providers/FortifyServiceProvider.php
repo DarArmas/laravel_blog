@@ -48,6 +48,7 @@ class FortifyServiceProvider extends ServiceProvider
                 $roles = $usuario->roles()->first();
                 if($roles){
                     $request->session()->put('rol_slug', $roles->slug);
+                    $request->session()->put('rol_id', $roles->id);
                     return $usuario;
                 }
             }
