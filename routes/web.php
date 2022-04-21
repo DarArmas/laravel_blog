@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\MenuRolController;
 use App\Http\Controllers\Backend\PermisoController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\PermisoRolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +45,8 @@ Route::group(['prefix'=>'admin-backend', 'middleware' => ['auth', 'superadminist
      Route::post('permiso', [PermisoController::class, 'guardar'])->name('permiso.guardar');
      Route::put('permiso/{id}', [PermisoController::class, 'actualizar'])->name('permiso.actualizar');
      Route::delete('permiso/{id}/eliminar', [PermisoController::class, 'eliminar'])->name('permiso.eliminar');
+
+     /* Rutas de Permiso-Rol */
+    Route::get('permiso-rol', [PermisoRolController::class, 'index'])->name('permiso-rol');
+    Route::post('permiso-rol', [PermisoRolController::class, 'guardar'])->name('permiso-rol.guardar');
 });
