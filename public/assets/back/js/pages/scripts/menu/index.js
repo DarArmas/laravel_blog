@@ -15,7 +15,7 @@ $(document).ready(function(){
         });
     });
 
-    $('.boton-eliminar-menu').on('click', function(event){
+    $('.boton-eliminar').on('click', function(event){
         event.preventDefault();
         form = $(this).parents('form:first');
         $('#confirmar-eliminar').modal('show');
