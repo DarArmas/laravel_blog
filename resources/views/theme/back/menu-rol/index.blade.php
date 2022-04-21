@@ -5,7 +5,7 @@
 @endsection
 
 @section("scripts")
-<script src="{{asset("assets/back/js/pages/scripts/menu-rol/index.js")}}"></script>
+<script src="{{asset("assets/back/js/scripts/menu-rol/index.js")}}"></script>
 @endsection
 
 @section('contenido')

@@ -56,6 +56,8 @@ class PermisoController extends Controller
         return view('theme.back.permiso.editar', compact('data'));
     }
 
+    
+
     /**
      * Update the specified resource in storage.
      *

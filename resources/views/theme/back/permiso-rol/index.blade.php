@@ -4,7 +4,7 @@ Permiso Rol
 @endsection
 
 @section("scripts")
-<script src="{{asset("assets/back/js/pages/scripts/permiso-rol/index.js")}}" type="text/javascript"></script>
+<script src="{{asset("assets/back/js/scripts/permiso-rol/index.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')

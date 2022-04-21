@@ -1,6 +1,6 @@
 @extends('theme.back.app')
 @section('titulo')
-Sistema permisos
+Sistema roles
 @endsection
 
 @section("scripts")
@@ -18,13 +18,13 @@ Sistema permisos
         @endif
         <div class="card">
             <div class="card-header bg-success">
-                <h5 class="text-white float-left">Crear permisos</h5>
-                <a href="{{route('permiso')}}" class="btn btn-outline-light btn-sm float-right">Volver al listado</a>
+                <h5 class="text-white float-left">Crear rol</h5>
+                <a href="{{route('rol')}}" class="btn btn-outline-light btn-sm float-right">Volver al listado</a>
             </div>
-            <form action="{{route("permiso.guardar")}}" id="form-general" class="form-horizontal" method="POST">
+            <form action="{{route("rol.guardar")}}" id="form-general" class="form-horizontal" method="POST">
                 @csrf
                 <div class="card-body">
-                    @include("theme.back.permiso.form")
+                    @include("theme.back.rol.form")
                 </div>
                 <div class="border-top">
                     <div class="card-body">
