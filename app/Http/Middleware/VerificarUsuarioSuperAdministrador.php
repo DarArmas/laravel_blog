@@ -18,7 +18,7 @@ class VerificarUsuarioSuperAdministrador
     { 
         if(isSuperAdmin())
             return $next($request);
-        return redirect('/');
+        return redirect()->route('inicio')->with('mensaje', 'No tienes permiso pra acceder a este modulo');
         
     }
 }

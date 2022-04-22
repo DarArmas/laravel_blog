@@ -67,7 +67,7 @@ class PermisoController extends Controller
      */
     public function actualizar(ValidacionPermiso $request, $id)
     {
-        Permiso::fnidOrFail($id)->update($request->validated());
+        Permiso::findOrFail($id)->update($request->validated());
         cache()->tags('Permiso')->flush();
         return redirect()->route('permiso')->with('mensaje', 'Permiso actualizado con exito');
     }
