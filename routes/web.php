@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\RolController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\MenuRolController;
 use App\Http\Controllers\Backend\PermisoController;
+use App\Http\Controllers\Backend\CategoriaController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermisoRolController;
 
@@ -60,4 +61,13 @@ Route::group(['prefix'=>'admin-backend', 'middleware' => ['auth', 'superadminist
      /* Rutas de Permiso-Rol */
     Route::get('permiso-rol', [PermisoRolController::class, 'index'])->name('permiso-rol');
     Route::post('permiso-rol', [PermisoRolController::class, 'guardar'])->name('permiso-rol.guardar');
+
+     /** Rutas Categoría */
+     Route::get('categoria', [CategoriaController::class, 'index'])->name('categoria');
+     Route::post('categoria/crear', [CategoriaController::class, 'crear'])->name('categoria.crear');
+     Route::put('categoria/{id}/editar', [CategoriaController::class, 'editar'])->name('categoria.editar');
+     Route::post('categoria', [CategoriaController::class, 'guardar'])->name('categoria.guardar');
+     Route::put('categoria/{id}', [CategoriaController::class, 'actualizar'])->name('categoria.actualizar');
+     Route::delete('categoria/{id}/eliminar', [CategoriaController::class, 'eliminar'])->name('categoria.eliminar');
+
 });
