@@ -55,25 +55,25 @@ $(document).ready(function () {
                     APP.validacionGeneral('form-general');
                     $('#accion-categoria').modal('show');
                 } else if (accion == 'guardar' || accion == 'actualizar') {
-                    APP.notificacion('Categoría creada y/o actualizada con exito', 'Tuto-Blog', 'success');
+                    APP.notificacion('Categoría creada y/o actualizada con exito', 'Laravel Blog', 'success');
                     tablaData(respuesta);
                 } else if (accion == 'eliminar') {
                     if (respuesta.mensaje == 'ok') {
                         tabla.row(form.parents('tr')).remove().draw(false);
-                        APP.notificacion('El registro se eliminó correctamente', 'Tuto-Blog', 'success');
+                        APP.notificacion('El registro se eliminó correctamente', 'Laravel Blog', 'success');
                     } else {
-                        APP.notificacion('El registro no pudo ser eliminado, lo más seguro es que este siendo usado en otra tabla', 'Tuto-Blog', 'error');
+                        APP.notificacion('El registro no pudo ser eliminado, lo más seguro es que este siendo usado en otra tabla', 'Laravel Blog', 'error');
                     }
                 }
             },
             error: function (error) {
                 if (error.status == 403) {
-                    APP.notificacion('Error de seguridad, pongase en contacto con el Admin', 'Tuto-Blog', 'error');
+                    APP.notificacion('Error de seguridad, pongase en contacto con el Admin', 'Laravel Blog', 'error');
                 } else {
                     var errors = error.responseJSON.errors;
                     $.each(errors, function (key, val) {
                         $.each(val, function (key, mensaje) {
-                            APP.notificacion(mensaje, 'Tuto-Blog', 'error');
+                            APP.notificacion(mensaje, 'Laravel Blog', 'error');
                         });
                         return false;
                     });

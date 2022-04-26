@@ -63,7 +63,7 @@ class CategoriaController extends Controller
     {
         if($request->ajax()){
             $data = Categoria::findOrFail($id);
-            return view('theme.back.categoria.editar', compact($data));
+            return view('theme.back.categoria.editar', compact('data'));
         }else{
             abort(404);
         }
