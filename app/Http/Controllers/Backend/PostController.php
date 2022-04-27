@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Backend\Tag;
 use App\Models\Backend\Post;
 use Illuminate\Http\Request;
+use App\Models\Backend\Categoria;
+use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
@@ -15,7 +17,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::get();
+        return view('theme.back.post.index', compact('posts'));
+
     }
 
     /**
@@ -25,7 +29,9 @@ class PostController extends Controller
      */
     public function crear()
     {
-        //
+        $categorias = Categoria::orderBy('id')->pluck('nombre', 'id');
+        $tags = Tag::orderBy('id')->pluck('nombre', 'id');
+        return view('theme.back.post.crear', compact('categorias', 'tags'));
     }
 
     /**
