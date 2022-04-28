@@ -47,7 +47,9 @@ class PostController extends Controller
         $post = Post::create($request->validated());
         $categorias = $request->categoria;
         $post->categoria()->sync(array_values($categorias));
-        // $post->categoria()->attach(aray_values($categorias));  asi independientemente si estan repetidas me agrega, asi no lo quiero
+        // $post->categoria()->attach(aray_values($categorias));  asi independientemente si estan repetidas me agrega, asi no lo quiero 
+        $tags = $request->tag ? Tag::setTag($request->tag) : [];
+        $post->tag()->sync($tags);
         return redirect()->route('post')->with('mensaje','Post guardado con exito');
     }
 

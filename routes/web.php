@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MiCuentaController;
 use App\Http\Controllers\Backend\RolController;
+use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\MenuRolController;
@@ -70,6 +71,14 @@ Route::group(['prefix'=>'admin-backend', 'middleware' => ['auth', 'superadminist
      Route::post('categoria', [CategoriaController::class, 'guardar'])->name('categoria.guardar');
      Route::put('categoria/{id}', [CategoriaController::class, 'actualizar'])->name('categoria.actualizar');
      Route::delete('categoria/{id}/eliminar', [CategoriaController::class, 'eliminar'])->name('categoria.eliminar');
+
+      /* Rutas de Tag */
+    Route::get('tag', [TagController::class, 'index'])->name('tag');
+    Route::get('tag/crear', [TagController::class, 'crear'])->name('tag.crear');
+    Route::get('tag/{id}/editar', [TagController::class, 'editar'])->name('tag.editar');
+    Route::post('tag', [TagController::class, 'guardar'])->name('tag.guardar');
+    Route::put('tag/{id}', [TagController::class, 'actualizar'])->name('tag.actualizar');
+    Route::delete('tag/{id}', [TagController::class, 'eliminar'])->name('tag.eliminar');
 
        /** Rutas Post */
     Route::get('post', [PostController::class, 'index'])->name('post');
