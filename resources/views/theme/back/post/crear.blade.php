@@ -36,7 +36,7 @@ Sistema Post
                 <h5 class="text-white float-left">Crear post</h5>
                 <a href="{{route('post')}}" class="btn btn-outline-light btn-sm float-right">Volver al listado</a>
             </div>
-            <form action="{{route("post.guardar")}}" id="form-general" class="form-horizontal" method="POST" autocomplete="off" enctype="multipart/form-data">
+            <form action="{{route("post.guardar")}}" id="form-general" class="form-horizontal" method="POST" autocomplete="off">
                 @csrf
                 <div class="card-body">
                     @include("theme.back.post.form")

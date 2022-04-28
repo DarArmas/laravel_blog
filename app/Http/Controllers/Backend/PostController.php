@@ -7,6 +7,7 @@ use App\Models\Backend\Post;
 use Illuminate\Http\Request;
 use App\Models\Backend\Categoria;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\ValidarPost;
 
 class PostController extends Controller
 {
@@ -40,9 +41,14 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function guardar(Request $request)
+    public function guardar(ValidarPost $request)
     {
-        //
+
+        $post = Post::create($request->validated());
+        $categorias = $request->categoria;
+        $post->categoria()->sync(array_values($categorias));
+        // $post->categoria()->attach(aray_values($categorias));  asi independientemente si estan repetidas me agrega, asi no lo quiero
+        return redirect()->route('post')->with('mensaje','Post guardado con exito');
     }
 
     /**

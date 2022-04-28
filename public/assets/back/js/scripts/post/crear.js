@@ -28,7 +28,7 @@ $(document).ready(function () {
         theme: "fas",
     });
     //var toolbarOptions = ['bold', 'italic', 'underline', 'strike'];
-    var quill = new Quill('#contenido', {
+    var quill = new Quill('#body', {
         theme: 'snow',
         /* modules: {
             toolbar: toolbarOptions
@@ -36,8 +36,9 @@ $(document).ready(function () {
     });
 
     quill.on('editor-change', function (eventName) {
-        $('#contenido-field').val(quill.root.innerHTML);
+        $('#body-field').val(quill.root.innerHTML);
     });
+
     const removeAccents = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
