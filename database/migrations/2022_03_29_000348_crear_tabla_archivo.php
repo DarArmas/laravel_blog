@@ -15,12 +15,12 @@ class CrearTablaArchivo extends Migration
     {
         Schema::create('archivo', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('model_id');
-            $table->string('model_type', '150');
+            $table->unsignedBigInteger('archivable_id');
+            $table->string('archivable_type', '150');
             $table->string('ruta', '150');
             $table->string('extension', '10');
             $table->string('peso');
-            $table->boolean('local')->default();
+            $table->boolean('local')->default(true);
             $table->timestamps();
         });
     }

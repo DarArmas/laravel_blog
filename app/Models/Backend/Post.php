@@ -2,8 +2,9 @@
 
 namespace App\Models\Backend;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Backend\Archivo;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
@@ -19,5 +20,9 @@ class Post extends Model
     //un post puede tener muchos tags | un tag puede tener muchos posts
     public function tag(){
         return $this->belongsToMany(Tag::class, 'post_tag');
+    }
+
+    public function archivo(){
+        return $this->morphOne(Archivo::class, 'archivable');
     }
 }
