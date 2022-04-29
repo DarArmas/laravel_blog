@@ -31,7 +31,7 @@ class ValidarPost extends FormRequest
             'descripcion' => 'required|max:255',
             'categoria' => 'required|array',
             'tag' => 'nullable|array',
-            'imagen' => 'nullable|image|max:1024|dimensions:max_width=2000,max_height=2000'
+            'imagen' => 'nullable|file|max:1024|mimes:jpeg,png,jpg'
         ];
     }
 

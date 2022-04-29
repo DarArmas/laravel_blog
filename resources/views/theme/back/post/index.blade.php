@@ -31,14 +31,14 @@ Post
                         <tbody>
                             @foreach ($posts as $post)
                             @php
-                              $imagen = $post->archivo->ruta ?? null  
+                              $imagen = $post->archivo ?? null  
                             @endphp
                                 <tr>
                                     <td>{{$post->id}}</td>
                                     <td>{{$post->titulo}}</td>
                                     <td>
                                         @if($imagen)
-                                        <img src="{{asset("storage/$imagen")}}" alt=""  width="80px">
+                                        <img src="{{$imagen->local ? asset("storage/$imagen") : Storage::disk("s3")->url($imagen->ruta)}}" alt=""  width="80px">
                                         @endif
                                     </td>
                                 </tr>
