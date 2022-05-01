@@ -55,20 +55,20 @@ class PostController extends Controller
             $folder = "imagen_post";
             $peso = $imagen->getSize();
             $extension = $imagen->extension();
-            // $ruta = Storage::disk('public')->put($folder, $imagen);
-            // $post->archivo()->create([
-            //     'ruta' => $ruta,
-            //     'extension' => $extension,
-            //     'peso' => $peso
-            // ]);
-
-            $ruta = Storage::disk('s3')->put($folder, $imagen, 'public');
+            $ruta = Storage::disk('public')->put($folder, $imagen);
             $post->archivo()->create([
                 'ruta' => $ruta,
                 'extension' => $extension,
-                'peso' => $peso,
-                'local' => false
+                'peso' => $peso
             ]);
+
+            // $ruta = Storage::disk('s3')->put($folder, $imagen, 'public');
+            // $post->archivo()->create([
+            //     'ruta' => $ruta,
+            //     'extension' => $extension,
+            //     'peso' => $peso,
+            //     'local' => false
+            // ]);
         }
         
         return redirect()->route('post')->with('mensaje','Post guardado con exito');

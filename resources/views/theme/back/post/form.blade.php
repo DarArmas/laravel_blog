@@ -16,7 +16,7 @@
         <select name="categoria[]" id="categoria" class="select2" multiple="multiple" style="width: 100%;" required>
             <option value="">Seleccione</option>
             @foreach($categorias as $key => $value)
-                <option value="{{$key}}">{{$value}}</option>
+                <option value="{{$key}}" {{in_array($key, old('categoria',[])) ? "selected": ""}}>{{$value}}</option>
             @endforeach
         </select>
     </div>
@@ -26,7 +26,12 @@
     <div class="col-sm-8">
         <select name="tag[]" id="tag" class="tags" multiple="multiple" style="width: 100%;">
             @foreach($tags as $key => $value)
-                <option value="{{$key}}">{{$value}}</option>
+                <option value="{{$key}}" {{in_array($key, old('tag',[])) ? "selected" : ""}}>{{$value}}</option>
+            @endforeach
+            @foreach(old("tag",[]) as $item)
+                @if(!is_numeric($item))
+                    <option value="{{$item}}" selected>{{$item}}</option>
+                @endif
             @endforeach
         </select>
     </div>
@@ -38,13 +43,13 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="body" class="col-sm-2 text-right control-label requerido">Cuerpo</label>
+    <label for="contenido" class="col-sm-2 text-right control-label requerido">Cuerpo</label>
     <div class="col-sm-8">
         {{-- <textarea name="body" id="body" class="form-control" style="height: 200px;" required>{{old("body", $data->body ?? "")}}</textarea> --}}
-        <div id="body" class="form-control" style="height: 200px">
-            {{old("body", $data->body ?? "")}}
+        <div id="contenido" class="form-control" style="height: 200px">
+            {!!old("contenido", $data->contenido ?? "")!!}
         </div>
-        <input type="hidden" name="contenido" id="body-field" value="{{old("body", $data->body ?? "")}}">
+        <input type="hidden" name="contenido" id="contenido-field" value="{!!old("contenido", $data->contenido ?? "")!!}">
     </div>
 </div>
 <div class="form-group row">

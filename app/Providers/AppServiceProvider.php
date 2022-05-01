@@ -27,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        
         //enviar a la vista aside menuP
         View::composer("theme.back.aside", function($view){
             $rol_id = session()->get('rol_id');

@@ -16,7 +16,6 @@ class MiCuentaController extends Controller
     {
         canUser('mi_cuenta');
         return view("theme.back.mi-cuenta.index");
-     
        
     }
 

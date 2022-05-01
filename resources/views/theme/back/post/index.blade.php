@@ -38,7 +38,7 @@ Post
                                     <td>{{$post->titulo}}</td>
                                     <td>
                                         @if($imagen)
-                                        <img src="{{$imagen->local ? asset("storage/$imagen") : Storage::disk("s3")->url($imagen->ruta)}}" alt=""  width="80px">
+                                        <img src="{{$imagen->local ? asset("storage/$imagen->ruta") : Storage::disk("s3")->url($imagen->ruta)}}" alt=""  width="80px">
                                         @endif
                                     </td>
                                 </tr>
