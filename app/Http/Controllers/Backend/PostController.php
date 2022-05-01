@@ -82,7 +82,7 @@ class PostController extends Controller
      */
     public function mostrar(Post $post)
     {
-        //
+        return view("theme.back.post.mostrar", compact('post'));
     }
 
     /**

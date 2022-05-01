@@ -23,9 +23,12 @@ Post
                     <table class="table table-striped table-bordered" id="data-table">
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Titulo</th>
-                                <th>Imagen</th>
+                                <th class="no-sort no-search" style="width:30px">Id</th>
+                                <th class="no-sort no-search" style="width:40px">Imagen</th>
+                                <th>Título</th>
+                                <th>Categoría</th>
+                                <th>Tags</th>
+                                <th class="no-sort no-search"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,18 +38,29 @@ Post
                             @endphp
                                 <tr>
                                     <td>{{$post->id}}</td>
-                                    <td>{{$post->titulo}}</td>
                                     <td>
                                         @if($imagen)
                                         <img src="{{$imagen->local ? asset("storage/$imagen->ruta") : Storage::disk("s3")->url($imagen->ruta)}}" alt=""  width="80px">
                                         @endif
                                     </td>
+                                    <td> <a href="{{route("post.mostrar", $post)}}" class="mostrar-post">{{$post->titulo}}</a></td>
+                                    <td>{{$post->categoria->implode('nombre', ' - ')}}</td>
+                                    <td>{{$post->tag->implode('nombre', ' - ')}}</td>
+                                    <td></td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<!--modal mostrar post-->
+<div class="modal fade" id="modal-post" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body"></div>
         </div>
     </div>
 </div>

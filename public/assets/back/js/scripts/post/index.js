@@ -43,7 +43,7 @@ $(document).ready(function () {
                     var errors = error.responseJSON.errors;
                     $.each(errors, function (key, val) {
                         $.each(val, function (key, mensaje) {
-                            APP.notificacion(mensaje, 'Tuto-Blog', 'error');
+                            APP.notificacion(mensaje, 'Laravel blog', 'error');
                         });
                         return false;
                     });
