@@ -2,10 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Backend\Rol;
 use App\Models\Usuario;
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
 class Instalador extends Command
@@ -41,30 +39,13 @@ class Instalador extends Command
      */
     public function handle()
     {
-        if(!$this->verificar()){
-            $rol = $this->crearRolSuperAdmin();
+ 
             $usuario = $this->crearUsuarioSuperAdmin();
             //Relacionarlo
-            $usuario->roles()->attach($rol);
-            $this->line('El rol y el usuario administrador se instalaron correctamente');
-        }else{
-            $this->error('No se puede ejecutar el instalador porque ya hay un rol privado');
-        }
-     
+            $usuario->roles()->attach(1);
+            $this->line('El usuario administrador se instalaron correctamente');
     }
 
-    private function verificar(){
-        return Rol::find(1); //si no existe regresa null = false | si existe regresa true
-    }
-
-    private function crearRolSuperAdmin(){
-        $rol = "Super Administrador";
-        return Rol::create([
-            'nombre' => $rol,
-            'slug' => Str::slug($rol, '_')
-        ]);
-
-    }
 
     private function crearUsuarioSuperAdmin(){
         return Usuario::create([

@@ -16,10 +16,18 @@ class MenuRolSeeder extends Seeder
     public function run()
     {
         $menu_rol = array(
-            array('menu_id' => '4','rol_id' => '1'),
-            array('menu_id' => '1','rol_id' => '1'),
-            array('menu_id' => '3','rol_id' => '1'),
-            array('menu_id' => '5','rol_id' => '1')
+            array('menu_id' => '3', 'rol_id' => '1'),
+            array('menu_id' => '2', 'rol_id' => '1'),
+            array('menu_id' => '1', 'rol_id' => '1'),
+            array('menu_id' => '4', 'rol_id' => '1'),
+            array('menu_id' => '5', 'rol_id' => '1'),
+            array('menu_id' => '6', 'rol_id' => '1'),
+            array('menu_id' => '7', 'rol_id' => '1'),
+            array('menu_id' => '8', 'rol_id' => '1'),
+            array('menu_id' => '9', 'rol_id' => '1'),
+            array('menu_id' => '10', 'rol_id' => '1'),
+            array('menu_id' => '11', 'rol_id' => '1'),
+            array('menu_id' => '12', 'rol_id' => '1')
           );
 
           DB::statement('SET FOREIGN_KEY_CHECKS = 0;');

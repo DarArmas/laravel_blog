@@ -7,14 +7,14 @@ use Illuminate\Support\Facades\Session;
 
 if(!function_exists('isSuperAdmin')){
     function isSuperAdmin(){
-        return Session::get('rol_slug') == 'super_administrador';
+        return Session::get('rol_slug') == 'superadmin';
         
     }
 }
 
 if(!function_exists('canUser')){
     function canUser($permiso, $redirect = true){
-        if(Session::get('rol_slug') == 'super_administrador'){
+        if(Session::get('rol_slug') == 'superadmin'){
             return true;
         }else{
             $rol_id = Session::get('rol_id');
