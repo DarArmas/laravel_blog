@@ -23,16 +23,21 @@ class ValidarPost extends FormRequest
      */
     public function rules()
     {
-        return [
-            'usuario_id' => 'required|integer',
+       dd($this->post);
+        
+        $reglas =  [
+            'usuario_id' => 'required|integer|exists:usuario,id',
             'titulo' => 'required|max:150',
-            'slug' => 'required|max:150|unique:post,slug,'.$this->route('id'),
+            'slug' => 'required|max:150|unique:post,slug,'.optional($this->post)->id,
             'contenido' => 'required',
             'descripcion' => 'required|max:255',
             'categoria' => 'required|array',
             'tag' => 'nullable|array',
             'imagen' => 'required|file|max:1024|mimes:jpeg,png,jpg'
         ];
+        if($this->post) 
+            $reglas['imagen'] = 'nullable|file|max:1024|mimes:jpeg,png,jpg';
+        return $reglas;
     }
 
     public function messages(){

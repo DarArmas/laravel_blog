@@ -46,7 +46,17 @@ Post
                                     <td> <a href="{{route("post.mostrar", $post)}}" class="mostrar-post">{{$post->titulo}}</a></td>
                                     <td>{{$post->categoria->implode('nombre', ' - ')}}</td>
                                     <td>{{$post->tag->implode('nombre', ' - ')}}</td>
-                                    <td></td>
+                                    <td>
+                                        <a href="{{route("post.editar", $post)}}" data-toggle="tooltip" title="Editar este registro">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form action="{{route('post.eliminar', $post)}}" class="form-eliminar d-inline" method="POST">
+                                            @csrf @method('delete')
+                                            <button type="button" class="btn-accion-tabla boton-eliminar" data-toggle="tooltip" title="Eliminar este registro">
+                                                <i class="text-danger fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
