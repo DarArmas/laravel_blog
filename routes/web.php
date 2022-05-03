@@ -25,6 +25,7 @@ use App\Http\Controllers\Backend\PermisoRolController;
 
 Route::get('/', [BlogController::class, 'index'])->name('inicio');
 Route::get('categoria/{slug}', [BlogController::class, 'categoria'])->name('blog.categoria');
+Route::get('tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');
 
 Route::get('mi-cuenta', [MiCuentaController::class, 'index'])->middleware('auth')->name('mi-cuenta');
 

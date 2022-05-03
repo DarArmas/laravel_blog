@@ -17,10 +17,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::orderBy('nombre')->get();
-        $tags = Tag::orderBy('nombre')->get();
-        $posts = Post::latest('id')->activo()->get();
-        return view('theme.front.blog.index', compact('posts', 'categorias'));
+       
+        $posts = Post::latest('id')->activo()->paginate(2);
+        return $this->dataView($posts);   
     }
 
     
@@ -32,12 +31,21 @@ class BlogController extends Controller
     public function categoria(Request $request, $slug){
         $categoria = Categoria::with('post')->where('slug', $slug)->first();
         if(!$categoria) abort(404);
-        $posts = $categoria->post;
-        $categorias = Categoria::orderBy('nombre')->get();
-        $tags = Tag::orderBy('nombre')->get();
-        return view('theme.front.blog.index', compact('posts', 'categorias'));
-        
+        $posts = $categoria->post()->paginate(2);
+        return $this->dataView($posts);   
     }
 
-   
+    public function tag(Request $request, $slug){
+        $tag = Tag::with('post')->where('slug', $slug)->first();
+        if(!$tag) abort(404);
+        $posts = $tag->post()->paginate(2);
+        return $this->dataView($posts);   
+    }
+
+    public function dataView($posts){
+        $categorias = Categoria::orderBy('nombre')->get();
+        $tags = Tag::orderBy('nombre')->get();
+        return view('theme.front.blog.index', compact('posts', 'categorias', 'tags'));
+    }  
+
 }

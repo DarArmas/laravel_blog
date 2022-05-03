@@ -12,6 +12,10 @@ class Tag extends Model
       protected $table = 'tag';
     protected $guarded = [];
 
+    public function post(){
+      return $this->belongsToMany(Post::class, 'post_tag');
+  }
+
     public static function setTag($tags){
       $data = [];
       if(is_array($tags)){
@@ -30,4 +34,5 @@ class Tag extends Model
       }
       return $data;
     }
+    
 }

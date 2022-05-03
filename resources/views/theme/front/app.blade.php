@@ -39,7 +39,7 @@
   <link href="{{asset("assets/front/pages/css/components.css")}}" rel="stylesheet">
   <link href="{{asset("assets/front/corporate/css/style.css")}}" rel="stylesheet">
   <link href="{{asset("assets/front/corporate/css/style-responsive.css")}}" rel="stylesheet">
-  <link href="{{asset("assets/front/corporate/css/themes/red.css")}}" rel="stylesheet" id="style-color">
+  <link href="{{asset("assets/front/corporate/css/themes/blue.css")}}" rel="stylesheet" id="style-color">
   <link href="{{asset("assets/front/corporate/css/custom.css")}}" rel="stylesheet">
   <!-- Theme styles END -->
 </head>
