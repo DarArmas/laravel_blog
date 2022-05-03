@@ -19,7 +19,7 @@ class BlogController extends Controller
     {
         $categorias = Categoria::orderBy('nombre')->get();
         $tags = Tag::orderBy('nombre')->get();
-        $posts = Post::latest('id')->where('estado', true)->get();
+        $posts = Post::latest('id')->activo()->get();
         return view('theme.front.blog.index', compact('posts'));
     }
 

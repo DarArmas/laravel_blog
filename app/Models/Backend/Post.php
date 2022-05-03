@@ -25,4 +25,15 @@ class Post extends Model
     public function archivo(){
         return $this->morphOne(Archivo::class, 'archivable');
     }
+
+     /**
+     * Scope a query to only include active users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return void
+     */
+    public function scopeActivo($query)
+    {
+        $query->where('estado', true);
+    }
 }

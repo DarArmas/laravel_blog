@@ -32,7 +32,7 @@
                                 <p>
                                     {{$post->descripcion}}
                                 </p>
-                                <a href="blog-item.html" class="more">Leer mas hola soy un cambio<i class="icon-angle-right"></i></a>
+                                <a href="blog-item.html" class="more">Leer más<i class="icon-angle-right"></i></a>
                             </div>
                         </div>
                         <hr class="blog-post-sep">
