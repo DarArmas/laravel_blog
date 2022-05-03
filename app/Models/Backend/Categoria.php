@@ -10,4 +10,8 @@ class Categoria extends Model
     use HasFactory;
     protected $table = 'categoria';
     protected $guarded = [];
+
+    public function post(){
+        return $this->belongsToMany(Post::class, 'post_categoria');
+    }
 }

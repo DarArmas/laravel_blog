@@ -1,7 +1,7 @@
 <div class="header">
     <div class="container">
         <a class="site-logo" href="{{route("inicio")}}">
-            <img src="{{("assets/front/corporate/img/logos/logo-corp-red.png")}}" alt="Metronic FrontEnd">
+            <img src="{{asset("assets/front/corporate/img/logos/logo-corp-red.png")}}" alt="Metronic FrontEnd">
         </a>
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
         <div class="header-navigation pull-right font-transform-inherit">

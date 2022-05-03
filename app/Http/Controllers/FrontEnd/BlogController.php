@@ -20,12 +20,22 @@ class BlogController extends Controller
         $categorias = Categoria::orderBy('nombre')->get();
         $tags = Tag::orderBy('nombre')->get();
         $posts = Post::latest('id')->activo()->get();
-        return view('theme.front.blog.index', compact('posts'));
+        return view('theme.front.blog.index', compact('posts', 'categorias'));
     }
 
     
     public function mostrar($id)
     {
+        
+    }
+
+    public function categoria(Request $request, $slug){
+        $categoria = Categoria::with('post')->where('slug', $slug)->first();
+        if(!$categoria) abort(404);
+        $posts = $categoria->post;
+        $categorias = Categoria::orderBy('nombre')->get();
+        $tags = Tag::orderBy('nombre')->get();
+        return view('theme.front.blog.index', compact('posts', 'categorias'));
         
     }
 
