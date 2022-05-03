@@ -22,9 +22,7 @@ class ValidarPost extends FormRequest
      * @return array
      */
     public function rules()
-    {
-       dd($this->post);
-        
+    {   
         $reglas =  [
             'usuario_id' => 'required|integer|exists:usuario,id',
             'titulo' => 'required|max:150',
