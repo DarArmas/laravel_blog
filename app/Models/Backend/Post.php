@@ -2,6 +2,7 @@
 
 namespace App\Models\Backend;
 
+use App\Models\Usuario;
 use App\Models\Backend\Archivo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,6 +25,10 @@ class Post extends Model
 
     public function archivo(){
         return $this->morphOne(Archivo::class, 'archivable');
+    }
+
+    public function usuario(){
+        return $this->belongsTo(Usuario::class, 'usuario_id');
     }
 
      /**
