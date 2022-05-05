@@ -22,14 +22,6 @@ use App\Http\Controllers\Backend\PermisoRolController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [BlogController::class, 'index'])->name('inicio');
-Route::get('articulo/{slug}', [BlogController::class, 'mostrar'])->name('blog.mostrar');
-Route::get('categoria/{slug}', [BlogController::class, 'categoria'])->name('blog.categoria');
-Route::get('tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');
-
-Route::get('mi-cuenta', [MiCuentaController::class, 'index'])->middleware('auth')->name('mi-cuenta');
-
 Route::group(['prefix'=>'admin-backend', 'middleware' => ['auth', 'superadministrador']],function(){
     //Routas del menu
     Route::get('', [DashboardController::class, 'index'])->name('dashboard');
@@ -92,3 +84,10 @@ Route::group(['prefix'=>'admin-backend', 'middleware' => ['auth', 'superadminist
     Route::delete('post/{post}/eliminar', [PostController::class, 'eliminar'])->name('post.eliminar');
 
 });
+
+Route::get('mi-cuenta', [MiCuentaController::class, 'index'])->middleware('auth')->name('mi-cuenta');
+Route::post('mi-cuenta', [MiCuentaController::class, 'guardar'])->middleware('auth')->name('mi-cuenta.guardar');
+Route::get('/', [BlogController::class, 'index'])->name('inicio');
+Route::get('categoria/{slug}', [BlogController::class, 'categoria'])->name('blog.categoria');
+Route::get('tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');
+Route::get('articulo/{slug}', [BlogController::class, 'mostrar'])->name('blog.mostrar');

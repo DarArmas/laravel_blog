@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class MiCuentaController extends Controller
 {
@@ -35,9 +37,24 @@ class MiCuentaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function guardar(Request $request)
     {
-        //
+        if ($imagen = $request->archivo) {
+            if (Auth::user()->archivo) {
+                Storage::disk('public')->delete(Auth::user()->archivo->ruta);
+                Auth::user()->archivo()->delete();
+            }
+            $folder = "imagen_usuario";
+            $peso = $imagen->getSize();
+            $extension = $imagen->extension();
+            $ruta = Storage::disk('public')->put($folder, $imagen);
+            Auth::user()->archivo()->create([
+                'ruta' => $ruta,
+                'extension' => $extension,
+                'peso' => $peso
+            ]);
+        }
+        return redirect()->route('mi-cuenta')->with('mensaje', 'Cambios guardados');
     }
 
     /**

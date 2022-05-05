@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Backend\Rol;
+use App\Models\Backend\Archivo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -36,5 +37,9 @@ class Usuario extends Authenticatable
 
     public function roles(){
         return $this->belongsToMany(Rol::class, 'usuario_rol', 'usuario_id', 'rol_id'); //los usuarios tienen una relacion con Roles a traves de la tabla puente usuarios_roles
+    }
+
+    public function archivo(){
+        return $this->morphOne(Archivo::class, 'archivable');
     }
 }
