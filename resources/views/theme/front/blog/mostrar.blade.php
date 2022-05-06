@@ -7,6 +7,12 @@
 <div class="row margin-bottom-40">
     <!-- BEGIN CONTENT -->
     <div class="col-md-12 col-sm-12">
+        @if ($mensaje = session('mensaje'))
+            <x-alert tipo="success" :mensaje="$mensaje" />
+        @endif
+        @if ($errors->any())
+            <x-alert tipo="danger" :mensaje="$errors" />
+        @endif
         <h1>{{$post->titulo}}</h1>
         <div class="content-page">
             <div class="row">
@@ -38,6 +44,19 @@
                         <li><i class="fa fa-comments"></i> 17</li>
                         <li><i class="fa fa-tags"></i> {{$post->tag->implode('nombre', ', ')}}</li>
                     </ul>
+                    <h2>Comentarios</h2>
+                    <div class="comments">
+                        @forelse ($post->comentario as $comentario)
+                            <div class="media">
+
+                            </div>
+                        @empty
+                            No hay comentarios para este post, si eres un usuario registrado puedes dejar tu comentario 
+                        @endforelse
+                    </div>
+                    @if(Auth::check())
+                      @include("theme.front.blog.comentario-form")
+                    @endif
                 </div>
                 @include("theme.front.blog.sidebar")
             </div>
