@@ -72,5 +72,7 @@
             Layout.initTwitter();
         });
     </script>
+    <!-- scripts de paginas especificas -->
+    @yield("scripts")
     <!-- END PAGE LEVEL JAVASCRIPTS -->
 </body>

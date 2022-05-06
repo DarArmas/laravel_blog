@@ -11,3 +11,7 @@
 .pagination>.active>span:hover{
     background-color: #e94d1c !important;
 }
+
+.comments .media{
+    padding-bottom: 10px;
+}

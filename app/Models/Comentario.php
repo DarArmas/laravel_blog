@@ -17,7 +17,7 @@ class Comentario extends Model
 
 
     public function hijo(){
-       return $this->belongsTo(Comentario::class, 'comentario_id');
+       return $this->hasMany(Comentario::class, 'comentario_id');
     }
 }
 

@@ -2,6 +2,12 @@
     $imagen = $post->archivo ?? null
 @endphp
 @extends('theme.front.app')
+
+@section('scripts')
+    <script src="{{asset('assets/front/pages/scripts/comentario.js')}}" type="text/javascript"></script>
+@endsection
+
+
 @section('contenido')
 <!-- BEGIN SIDEBAR & CONTENT -->
 <div class="row margin-bottom-40">
@@ -46,10 +52,8 @@
                     </ul>
                     <h2>Comentarios</h2>
                     <div class="comments">
-                        @forelse ($post->comentario as $comentario)
-                            <div class="media">
-
-                            </div>
+                        @forelse ($post->comentario->whereNull('comentario_id') as $comentario)
+                            @include('theme.front.blog.comentario')
                         @empty
                             No hay comentarios para este post, si eres un usuario registrado puedes dejar tu comentario 
                         @endforelse
