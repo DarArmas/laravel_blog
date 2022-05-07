@@ -4,7 +4,7 @@
 <!-- Head BEGIN -->
 <head>
   <meta charset="utf-8">
-  <title>Blog Page | Laravel Blog</title>
+  <title>Movie Zone | Your cinema blog</title>
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,7 +20,7 @@
   <meta property="og:image" content="-CUSTOMER VALUE-"><!-- link to image for socio -->
   <meta property="og:url" content="-CUSTOMER VALUE-">
 
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="shortcut icon" href="{{asset("favicon2.ico")}}">
 
   <!-- Fonts START -->
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
@@ -39,7 +39,7 @@
   <link href="{{asset("assets/front/pages/css/components.css")}}" rel="stylesheet">
   <link href="{{asset("assets/front/corporate/css/style.css")}}" rel="stylesheet">
   <link href="{{asset("assets/front/corporate/css/style-responsive.css")}}" rel="stylesheet">
-  <link href="{{asset("assets/front/corporate/css/themes/red.css")}}" rel="stylesheet" id="style-color">
+  <link href="{{asset("assets/front/corporate/css/themes/blue.css")}}" rel="stylesheet" id="style-color">
   <link href="{{asset("assets/front/corporate/css/custom.css")}}" rel="stylesheet">
   <!-- Theme styles END -->
 </head>
