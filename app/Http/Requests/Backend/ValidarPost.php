@@ -31,7 +31,8 @@ class ValidarPost extends FormRequest
             'descripcion' => 'required|max:255',
             'categoria' => 'required|array',
             'tag' => 'nullable|array',
-            'imagen' => 'required|file|max:1024|mimes:jpeg,png,jpg'
+            'imagen' => 'required|file|max:1024|mimes:jpeg,png,jpg',
+            'video' => 'nullable|max:100'
         ];
         if($this->post) 
             $reglas['imagen'] = 'nullable|file|max:1024|mimes:jpeg,png,jpg';

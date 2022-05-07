@@ -32,6 +32,13 @@
                                     <div class="item active">
                                         <img src="{{$imagen->local ? asset("storage/$imagen->ruta") : Storage::disk("s3")->url($imagen->ruta)}}" alt="">
                                     </div>
+                                    @if ($post->video)
+                                    <div class="item">
+                                        <!-- BEGIN VIDEO -->
+                                        <iframe src="https://www.youtube.com/embed/{{ $post->video }}" style="width:100%; border:0" allowfullscreen="" height="350"></iframe>
+                                        <!-- END VIDEO -->
+                                    </div>
+                                    @endif
                                 </div>
                               <!-- Carousel nav -->
                               <a class="carousel-control left" href="#myCarousel" data-slide="prev">

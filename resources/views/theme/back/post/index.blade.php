@@ -28,6 +28,7 @@ Post
                                 <th>Título</th>
                                 <th>Categoría</th>
                                 <th>Tags</th>
+                                <th>Video</th>
                                 <th class="no-sort no-search"></th>
                             </tr>
                         </thead>
@@ -46,6 +47,7 @@ Post
                                     <td> <a href="{{route("post.mostrar", $post)}}" class="mostrar-post">{{$post->titulo}}</a></td>
                                     <td>{{$post->categoria->implode('nombre', ' - ')}}</td>
                                     <td>{{$post->tag->implode('nombre', ' - ')}}</td>
+                                    <td>{{$post->video}}</td>
                                     <td>
                                         <a href="{{route("post.editar", $post)}}" data-toggle="tooltip" title="Editar este registro">
                                             <i class="fas fa-edit"></i>

@@ -64,6 +64,12 @@
     </div>
 </div>
 <div class="form-group row">
+    <label for="video" class="col-sm-2 text-right control-label">Ingresa el ID del video</label>
+    <div class="col-sm-8">
+        <input type="text" name="video" id="video" class="form-control" value="{{old("video", $post->video ?? "")}}" maxlength="100">
+    </div>
+</div>
+<div class="form-group row">
     <label for="imagen" class="col-sm-2 text-right control-label requerido">Imagen</label>
     <div class="col-sm-5">
         <input type="file" name="imagen" id="imagen" data-initial-preview="{{$imagen}}" accept="image/*"/>
