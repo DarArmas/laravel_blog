@@ -40,7 +40,7 @@ class MenuController extends Controller
     {
         $validado = $request->validated(); // aqui los campos ya vienen bien validados por backend POR ESTO PUEDO HABILITAR ASIGNACION MASIVA
         Menu::create($validado);
-        cache()->tags('Menu')->flush();
+        //cache()->tags('Menu')->flush();
         return redirect()->route('menu.crear')->with('mensaje', 'Menú guradado correctamente'); //variable de sesion
     }
 
@@ -77,7 +77,7 @@ class MenuController extends Controller
     public function actualizar(ValidacionMenu $request, $id)
     {
         Menu::findOrFail($id)->update($request->validated());
-        cache()->tags('Menu')->flush();
+        //cache()->tags('Menu')->flush();
         return redirect()->route('menu')->with('mensaje', 'Menú actualizado con éxito');
     }
 
@@ -90,7 +90,7 @@ class MenuController extends Controller
     public function eliminar($id)
     {
         Menu::destroy($id);
-        cache()->tags('Menu')->flush();
+       // cache()->tags('Menu')->flush();
         return redirect()->route('menu')->with('mensaje', 'Menu eliminado con éxito');
 
     }
@@ -98,7 +98,7 @@ class MenuController extends Controller
     public function guardarOrden(Request $request){
         if($request->ajax()){
             Menu::guardarOrden($request->menu);
-            cache()->tags('Menu')->flush();
+           // cache()->tags('Menu')->flush();
             return response()->json(['respuesta'=> 'ok']);
         }else{
             abort(404);

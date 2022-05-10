@@ -39,7 +39,7 @@ class PermisoController extends Controller
     public function guardar(ValidacionPermiso $request)
     {
         Permiso::create($request->validated());
-        cache()->tags('Permiso')->flush();
+       // cache()->tags('Permiso')->flush();
         return redirect()->route('permiso')->with('mensaje', 'Permiso guardado correctamente');
     }
 
@@ -68,7 +68,7 @@ class PermisoController extends Controller
     public function actualizar(ValidacionPermiso $request, $id)
     {
         Permiso::findOrFail($id)->update($request->validated());
-        cache()->tags('Permiso')->flush();
+        //cache()->tags('Permiso')->flush();
         return redirect()->route('permiso')->with('mensaje', 'Permiso actualizado con exito');
     }
 
@@ -81,7 +81,7 @@ class PermisoController extends Controller
     public function eliminar($id)
     {
         Permiso::destroy($id);
-        cache()->tags('Permiso')->flush();
+        //cache()->tags('Permiso')->flush();
         return redirect()->route('permiso')->with('mensaje', 'Permiso eliminado con éxito');
     }
 }

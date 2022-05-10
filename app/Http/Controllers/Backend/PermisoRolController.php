@@ -31,7 +31,7 @@ class PermisoRolController extends Controller
     {
         if($request->ajax()){
             $permiso = Permiso::findOrFail($request->permiso_id);
-            cache()->tags('Permiso')->flush();
+            //cache()->tags('Permiso')->flush();
 
             if($request->estado == 1){
                 $permiso->roles()->attach($request->rol_id);

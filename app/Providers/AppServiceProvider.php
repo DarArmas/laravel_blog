@@ -30,9 +30,10 @@ class AppServiceProvider extends ServiceProvider
         //enviar a la vista aside menuP
         View::composer("theme.back.aside", function($view){
             $rol_id = session()->get('rol_id');
-            $menuP = cache()->tags('Menu')->rememberForever("MenuPrincipal.rolid.$rol_id", function(){
-                return Menu::getMenu(true);
-            });
+            // $menuP = cache()->tags('Menu')->rememberForever("MenuPrincipal.rolid.$rol_id", function(){
+            //     return Menu::getMenu(true);
+            // });
+            $menuP = Menu::getMenu(true);
             $view->with('menuPrincipal', $menuP);
         });
 
