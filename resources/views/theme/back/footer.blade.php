@@ -1,3 +1,3 @@
 <footer class="footer text-center">
-    All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+    <p>Desarrollado por Darnell Armas &copy; <?= date('Y'); ?> <a href="https://github.com/DarArmas/laravel_blog">Codigo Fuente</a></p>
 </footer>

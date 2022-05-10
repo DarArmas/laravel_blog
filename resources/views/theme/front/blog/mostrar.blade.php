@@ -54,7 +54,7 @@
                     <ul class="blog-info">
                         <li><i class="fa fa-user"></i> Por {{$post->usuario->nombre}}</li>
                         <li><i class="fa fa-calendar"></i> {{$post->created_at->format("d/m/Y")}}</li>
-                        <li><i class="fa fa-comments"></i> 17</li>
+                        <li><i class="fa fa-comments"></i> {{count($post->comentario)}}</li>
                         <li><i class="fa fa-tags"></i> {{$post->tag->implode('nombre', ', ')}}</li>
                     </ul>
                     <h2>Comentarios</h2>

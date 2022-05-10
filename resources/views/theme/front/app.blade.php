@@ -52,6 +52,10 @@
         @yield("contenido")
     </div>
 </div>
+<footer class="footer text-center">
+    <p class="pb-2">Desarrollado por Darnell Armas &copy; <?= date('Y'); ?> <a href="https://github.com/DarArmas/laravel_blog">Codigo Fuente</a></p>
+</footer>
+
     <!-- Load javascripts at bottom, this will reduce page load time -->
     <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
     <!--[if lt IE 9]>

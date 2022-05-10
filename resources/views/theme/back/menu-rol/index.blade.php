@@ -1,4 +1,4 @@
-@extends('theme.back.app');
+@extends('theme.back.app')
 
 @section('titulo')
     Menu Rol

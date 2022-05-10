@@ -17,7 +17,7 @@ class BlogController extends Controller
      */
     public function index()
     {  
-        $posts = Post::latest('id')->activo()->paginate(2);
+        $posts = Post::latest('id')->activo()->paginate(3);
         return $this->dataView($posts);   
     }
 

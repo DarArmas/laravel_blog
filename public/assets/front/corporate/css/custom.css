@@ -15,3 +15,15 @@
 .comments .media{
     padding-bottom: 10px;
 }
+
+.footer{
+    position: fixed;
+    z-index: 10000;
+    height: 30px;
+    padding:7px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+

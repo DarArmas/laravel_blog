@@ -6,8 +6,8 @@
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
         <div class="header-navigation pull-right font-transform-inherit">
             <ul>
-                <li><a href="{{route("inicio")}}">Home</a></li>
-                <li><a href="{{route("post")}}">Admin</a></li>
+                <li><a href="{{route("inicio")}}">Blog</a></li>
+                <li><a href="{{route("post")}}">Posts</a></li>
             </ul>
         </div>
     </div>
