@@ -47,11 +47,13 @@ class MiCuentaController extends Controller
             $folder = "imagen_usuario";
             $peso = $imagen->getSize();
             $extension = $imagen->extension();
-            $ruta = Storage::disk('public')->put($folder, $imagen);
+            //$ruta = Storage::disk('public')->put($folder, $imagen);
+            $ruta = Storage::disk('s3')->put($folder, $imagen, 'public');
             Auth::user()->archivo()->create([
                 'ruta' => $ruta,
                 'extension' => $extension,
-                'peso' => $peso
+                'peso' => $peso,
+                'local' => false
             ]);
         }
         return redirect()->route('mi-cuenta')->with('mensaje', 'Cambios guardados');

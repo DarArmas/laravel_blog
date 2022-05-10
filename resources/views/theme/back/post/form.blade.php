@@ -55,12 +55,13 @@
 </div>
 <div class="form-group row">
     <label for="contenido" class="col-sm-2 text-right control-label requerido">Cuerpo</label>
-    <div class="col-sm-8">
+    <div class="col-sm-8" id="quill-form">
         {{-- <textarea name="body" id="body" class="form-control" style="height: 200px;" required>{{old("body", $data->body ?? "")}}</textarea> --}}
         <div id="contenido" class="form-control" style="height: 200px">
             {!!old("contenido", $post->contenido ?? "")!!}
         </div>
-        <input type="hidden" name="contenido" id="contenido-field" value="{!!old("contenido", $post->contenido ?? "")!!}">
+        {{-- <input type="hidden" name="contenido" id="contenido-field" value="{!!old("contenido", $post->contenido ?? "")!!}"> --}}
+        <textarea name="contenido" id="contenido-field" value="{!!old("contenido", $post->contenido ?? "")!!}"></textarea>
     </div>
 </div>
 <div class="form-group row">

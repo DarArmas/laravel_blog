@@ -4,7 +4,7 @@ $archivo = Auth::user()->archivo;
 if ($archivo) {
     $imagen = $archivo->local ? asset("storage/$archivo->ruta") : Storage::disk('s3')->url($archivo->ruta);
 } else {
-    $imagen = "/assets/back/images/users/d2.jpg";
+    $imagen = asset("/assets/back/images/users/d2.jpg");
 }
 @endphp
 <input type="hidden" id="img-preview" value="{{$imagen}}">
