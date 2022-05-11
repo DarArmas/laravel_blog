@@ -7,7 +7,7 @@
         alt="" class="media-object">    
     </a>    
     <div class="media-body">
-        <h4 class="media-heading">&nbsp; <span>{{$comentario->created_at->diffForHumans()}} / <a href="javascript:;" class="boton-reply">Reply</a></span></h4>
+        <h4 class="media-heading">&nbsp; <span>{{$comentario->created_at->diffForHumans()}} <a href="javascript:;" class="boton-reply" style="{{!Auth::check() ? "display:none" : ""}}">/ Reply</a></span></h4>
         <p>{{$comentario->contenido}}</p>
         @forelse($comentario->hijo as $hijo)
         @php
@@ -27,7 +27,9 @@
         @endforelse
     </div>
     
+    @if(Auth::check())
     <div class="form-reply" style="display:none">
         @include("theme.front.blog.comentario-form-reply")
     </div>
+    @endif
 </div>
