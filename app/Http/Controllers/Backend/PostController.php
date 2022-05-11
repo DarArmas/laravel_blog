@@ -137,8 +137,17 @@ class PostController extends Controller
      * @param  \App\Models\Backend\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function eliminar(Post $post)
+    public function eliminar(Request $request, $id)
     {
-        //
+        if($request->ajax()){
+            try{
+                Post::destroy($id);
+            }catch(QueryException $exception){
+                return response()->json(['mensaje' => 'ng']);
+            }
+            return response()->json(['mensaje' => 'ok']);
+        }else{
+            abort(404);
+        }
     }
 }

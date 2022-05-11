@@ -54,7 +54,7 @@ Post
                                         </a>
                                         <form action="{{route('post.eliminar', $post)}}" class="form-eliminar d-inline" method="POST">
                                             @csrf @method('delete')
-                                            <button type="button" class="btn-accion-tabla boton-eliminar" data-toggle="tooltip" title="Eliminar este registro">
+                                            <button type="submit" class="btn-accion-tabla boton-eliminar" data-toggle="tooltip" title="Eliminar este registro">
                                                 <i class="text-danger fas fa-trash"></i>
                                             </button>
                                         </form>

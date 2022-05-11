@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $('#data-table').DataTable({
+
+    var tabla = $('#data-table').DataTable({
         language: {
             url: '/assets/back/js/dtspanish.json',
         },
@@ -24,8 +25,27 @@ $(document).ready(function () {
         ajaxRequest($(this).attr('href'), data, 'mostrar-post');
     });
 
+     //Proceso Eliminar Registro
+     $('#data-table').on('submit', '.form-eliminar', function (event) {
+        event.preventDefault();
+        const form = $(this);
+        swal.fire({
+            title: '¿ Seguro desea eliminar este registro ?',
+            text: 'Confirmar acción',
+            type: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Aceptar',
+        }).then(function (result) {
+            if (result.value) {
+                ajaxRequest(form.attr('action'), form.serialize(), 'eliminar', form);
+            }
+        });
+    });
 
-    function ajaxRequest(url, data, accion) {
+
+
+    function ajaxRequest(url, data, accion, form) {
         $.ajax({
             url: url,
             type: 'POST',
@@ -34,6 +54,14 @@ $(document).ready(function () {
                 if (accion == 'mostrar-post') {
                     $('#modal-post .modal-body').html(respuesta);
                     $('#modal-post').modal('show');
+                } else if (accion == 'eliminar'){
+                    console.log(respuesta);
+                    if (respuesta.mensaje == 'ok') {
+                        tabla.row(form.parents('tr')).remove().draw(false);
+                        APP.notificacion('El registro se eliminó correctamente', 'Laravel Blog', 'success');
+                    } else {
+                        APP.notificacion('El registro no pudo ser eliminado, lo más seguro es que este siendo usado en otra tabla', 'Laravel Blog', 'error');
+                    }
                 }
             },
             error: function (error) {
